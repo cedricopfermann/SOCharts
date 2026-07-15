@@ -68,6 +68,7 @@ public abstract class Axis extends VisiblePart implements Wrapped {
     private int renderingIndex;
     private AbstractDataProvider<?> data;
     private boolean allowEvents = false;
+	private boolean boundaryGap = true;
     SOChart soChart;
 
     /**
@@ -170,6 +171,8 @@ public abstract class Axis extends VisiblePart implements Wrapped {
             sb.append(",\"inverse\":true");
         }
         sb.append(",\"type\":").append(dataType);
+		if (!boundaryGap)
+			sb.append(",\"boundaryGap\":").append(false);
         if(name != null) {
             ComponentPart.encode(sb, "name", name);
             if(nameLocation != null) {
@@ -204,6 +207,14 @@ public abstract class Axis extends VisiblePart implements Wrapped {
         ComponentPart.encode(sb, "axisPointer", pointer);
         ComponentPart.encode(sb, "silent", !allowEvents);
     }
+
+	public void setBoundaryGap(boolean boundaryGap) {
+		this.boundaryGap = boundaryGap;
+	}
+
+	public boolean getBoundaryGap() {
+		return boundaryGap;
+	}
 
     /**
      * Sets whether events are allowed on this axis.

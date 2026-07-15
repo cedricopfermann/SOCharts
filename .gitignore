@@ -40,3 +40,9 @@ build/
 /zipTarget/
 /src/main/bundles/
 /node_modules/
+/package-lock.json
+/package.json
+/tsconfig.json
+/types.d.ts
+/vite.config.ts
+/vite.generated.ts
