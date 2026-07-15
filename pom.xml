@@ -53,4 +53,14 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>forgejo</id>
+            <url>http://vm-instance-cs-cicd.netbird.selfhosted:3000/api/packages/commoswiss/maven</url>
+        </repository>
+        <snapshotRepository>
+            <id>forgejo</id>
+            <url>http://vm-instance-cs-cicd.netbird.selfhosted:3000/api/packages/commoswiss/maven</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
