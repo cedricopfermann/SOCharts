@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>com.storedobject</groupId>
         <artifactId>so-vaadinpom</artifactId>
         <version>25.0.2</version>
-        <relativePath/>
+        <relativePath />
     </parent>
 
     <groupId>org.vaadin.addons.so</groupId>
@@ -53,14 +54,28 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <distributionManagement>
         <repository>
             <id>forgejo</id>
-            <url>http://vm-instance-cs-cicd.netbird.selfhosted:3000/api/packages/commoswiss/maven</url>
+            <url>
+                http://vm-instance-cs-cicd.netbird.selfhosted:3000/api/packages/commoswiss/maven</url>
         </repository>
         <snapshotRepository>
             <id>forgejo</id>
-            <url>http://vm-instance-cs-cicd.netbird.selfhosted:3000/api/packages/commoswiss/maven</url>
+            <url>
+                http://vm-instance-cs-cicd.netbird.selfhosted:3000/api/packages/commoswiss/maven</url>
         </snapshotRepository>
     </distributionManagement>
 </project>
