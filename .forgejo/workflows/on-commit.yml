@@ -1,0 +1,23 @@
+name: Publish
+on: [push]
+jobs:
+  publish:
+    runs-on: docker-node
+    permissions:
+          contents: read
+          packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+          cache: 'maven'
+      - name: Set up Maven
+        uses: https://github.com/stCarolas/setup-maven@v5
+      - name: Deploy
+        run: mvn --batch-mode --settings .forgejo/settings.xml -X clean deploy
+        env:
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
