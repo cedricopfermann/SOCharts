@@ -18,6 +18,6 @@ jobs:
       - name: Set up Maven
         uses: https://github.com/stCarolas/setup-maven@v5
       - name: Deploy
-        run: mvn --batch-mode --settings .forgejo/settings.xml -Dgpg.skip=true -Pdirectory clean deploy
+        run: mvn --batch-mode --settings .forgejo/settings.xml -Pproduction -Dgpg.skip=true clean deploy
         env:
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
